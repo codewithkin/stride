@@ -1,5 +1,6 @@
 import '../global.css';
 
+import Toast from 'react-native-toast-message';
 import { Stack } from 'expo-router';
 
 export default function Layout() {
@@ -28,6 +29,8 @@ export default function Layout() {
           headerShown: false,
         }}
       />
+
+      <Toast />
     </Stack>
   )
 }
