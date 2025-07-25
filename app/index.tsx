@@ -2,6 +2,7 @@ import { Image, Text, View } from 'react-native';
 import { Button } from '~/components/Button';
 import { MotiView } from "moti";
 import { ChevronRight, Sparkles, WandSparkles, SquarePen } from "lucide-react-native";
+import { router } from 'expo-router';
 
 export default function Home() {
     return (
@@ -97,7 +98,9 @@ export default function Home() {
                     </View>
 
                     {/* Next Btn */}
-                    <Button className='bg-blue-600' title="Next" onPress={() => { }}>
+                    <Button className='bg-blue-600' title="Next" onPress={() => {
+                        router.push('/second');
+                    }}>
                         Next
                         <ChevronRight />
                     </Button>

@@ -17,6 +17,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "@gorhom/paper-onboarding": "^1.2.0",
+    "@react-native-community/checkbox": "^0.5.20",
     "@react-navigation/native": "^7.0.3",
     "expo": "^53.0.20",
     "expo-constants": "~17.1.4",
@@ -43,6 +44,7 @@
     "react-native-screens": "~4.11.1",
     "react-native-svg": "^15.11.2",
     "react-native-web": "^0.20.0",
+    "rn-checkbox-list": "^1.2.0",
     "zustand": "^4.5.1"
   },
   "devDependencies": {
