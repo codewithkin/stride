@@ -17,8 +17,6 @@
   "dependencies": {
     "@better-auth/expo": "^1.3.3",
     "@expo/vector-icons": "^14.0.0",
-    "@gorhom/paper-onboarding": "^1.2.0",
-    "@react-native-community/checkbox": "^0.5.20",
     "@react-navigation/native": "^7.0.3",
     "better-auth": "^1.3.3",
     "expo": "^53.0.20",
@@ -45,8 +43,8 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-svg": "^15.11.2",
+    "react-native-toast-message": "^2.3.3",
     "react-native-web": "^0.20.0",
-    "rn-checkbox-list": "^1.2.0",
     "zustand": "^4.5.1"
   },
   "devDependencies": {

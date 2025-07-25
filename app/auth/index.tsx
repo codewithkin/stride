@@ -3,8 +3,35 @@ import { ChevronsLeft } from "lucide-react-native"
 import { router } from 'expo-router';
 import { Container } from '~/components/Container';
 import { Button } from '~/components/Button';
+import { useState } from 'react';
+import { authClient } from '~/lib/auth-client';
 
 const Auth = () => {
+    // track the loading state of the sign-in process
+    const [loading, setLoading] = useState(false);
+
+    // Track the value of the email input
+    const [email, setEmail] = useState("");
+
+    const signInWithMagicLink = async () => {
+        try {
+            const { data, error } = await authClient.signIn.magicLink({
+                email,
+                callbackURL: "/home",
+                newUserCallbackURL: "/welcome",
+                errorCallbackURL: "/error",
+            });
+
+            if (error) {
+
+            }
+        } catch (e) {
+            console.error("Error during sign-in with magic link:", e);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <Container>
             <View className="flex flex-row w-full">
@@ -28,9 +55,8 @@ const Auth = () => {
                 />
                 <Button
                     className="rounded-xl bg-blue-500"
-                    onPress={() => {
-                        // Handle sign in logic here
-                        console.log("Sign in button pressed");
+                    onPress={async () => {
+                        await signInWithMagicLink()
                     }}
                     title="Sign in">
 
