@@ -18,7 +18,7 @@ const Auth = () => {
             setLoading(true);
             const { data, error } = await authClient.signIn.magicLink({
                 email,
-                callbackURL: "/home",
+                callbackURL: "/(tabs)/home",
                 newUserCallbackURL: "/welcome",
                 errorCallbackURL: "/error",
             });
