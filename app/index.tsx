@@ -3,8 +3,22 @@ import { Button } from '~/components/Button';
 import { MotiView } from "moti";
 import { ChevronRight, Sparkles, WandSparkles, SquarePen } from "lucide-react-native";
 import { router } from 'expo-router';
+import * as Store from 'expo-secure-store';
+import { useEffect } from 'react';
 
 export default function Home() {
+    // Find out if the user has completed the onboarding process before
+    const hasCompletedOnboarding = Store.getItem('hasCompletedOnboarding');
+
+    useEffect(() => {
+        if (hasCompletedOnboarding) {
+            // If the user has completed onboarding, redirect to the home page
+            router.push('/(tabs)/home');
+        }
+
+        return;
+    }, [hasCompletedOnboarding]);
+
     return (
         <View className="flex flex-col items-center justify-between w-full px-2 h-full">
             {/* Image container */}

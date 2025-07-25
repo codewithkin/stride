@@ -3,7 +3,9 @@ import { Button } from '~/components/Button';
 import { MotiView } from 'moti';
 import { ChevronRight } from 'lucide-react-native';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as Store from 'expo-secure-store';
+
 
 export default function Second() {
     const [checklist, setChecklist] = useState({
@@ -12,9 +14,18 @@ export default function Second() {
         item3: false,
     });
 
+    const hasCompletedOnboarding = Store.getItem('hasCompletedOnboarding');
+
     const toggleItem = (key: keyof typeof checklist) => {
         setChecklist((prev) => ({ ...prev, [key]: !prev[key] }));
     };
+
+    useEffect(() => {
+        // Mark the onboarding as completed
+        Store.setItem('hasCompletedOnboarding', 'true');
+
+        return;
+    }, []);
 
     return (
         <View className="flex flex-col items-center justify-between w-full px-2 h-full">
@@ -94,7 +105,9 @@ export default function Second() {
                             Back
                             <ChevronRight />
                         </Button>
-                        <Button className="bg-blue-600" title="Sign up" onPress={() => router.push('/auth')}>
+                        <Button className="bg-blue-600" title={
+                            hasCompletedOnboarding ? "Go home" : "Sign up"
+                        } onPress={() => router.push(hasCompletedOnboarding ? '/(tabs)/home' : '/auth')}>
                             Sign up
                             <ChevronRight />
                         </Button>
