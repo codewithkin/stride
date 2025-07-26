@@ -132,7 +132,7 @@ const Auth = () => {
                     from={{ translateY: 60, opacity: 0 }}
                     animate={{ translateY: 0, opacity: 1 }}
                     transition={{ type: 'timing', duration: 500 }}
-                    className="flex flex-col gap-2 my-12 w-full"
+                    className="flex flex-col gap-2 my-12 w-full h-full items-center justify-center"
                 >
                     <View className="flex flex-col mt-8 gap-1">
                         <Text className="text-5xl font-medium text-slate-800">
@@ -154,7 +154,7 @@ const Auth = () => {
                         title="Sign in"
                     />
 
-                    <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
+                    {/* <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
                         <View className="w-[120px] h-[1px] bg-slate-500" />
                         <Text className="text-gray-500 font-medium text-lg">Or</Text>
                         <View className="w-[120px] h-[1px] bg-slate-500" />
@@ -178,7 +178,7 @@ const Auth = () => {
 
                         <Pressable
                             onPress={async () => {
-                                await signInWithGoogle()
+                                await signInWithGithub()
                             }}
                             disabled={loading}
                             className="bg-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2">
@@ -190,7 +190,7 @@ const Auth = () => {
                                 Sign in with Github
                             </Text>
                         </Pressable>
-                    </View>
+                    </View> */}
                 </MotiView>
             )}
         </Container>
