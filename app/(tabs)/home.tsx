@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { View, Text, Image, Pressable } from 'react-native'
+import Quote from '~/components/home/Quote';
 import { authClient } from '~/lib/auth-client';
 
 const Home = () => {
@@ -33,6 +34,8 @@ const Home = () => {
                     />
                 </Pressable>
             </View>
+
+            <Quote />
         </View>
     )
 }
