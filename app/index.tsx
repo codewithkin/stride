@@ -19,11 +19,11 @@ export default function Home() {
         InteractionManager.runAfterInteractions(async () => {
             const result = await Store.getItem('hasCompletedOnboarding');
             if (result === 'true') {
-                if (session?.session) {
-                    router.replace('/(tabs)/home');
-                }
+                // if (session?.session) {
+                router.replace('/(tabs)/home');
+                // }
 
-                router.replace('/auth'); // Redirect to auth page if onboarding is complete
+                // router.replace('/auth'); // Redirect to auth page if onboarding is complete
             } else {
                 setHasCompletedOnboarding(false); // User needs onboarding
             }
