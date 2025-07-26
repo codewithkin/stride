@@ -14,7 +14,8 @@ export default function Home() {
         InteractionManager.runAfterInteractions(async () => {
             const result = await Store.getItem('hasCompletedOnboarding');
             if (result === 'true') {
-                router.replace('/(tabs)/home'); // Use `replace` to prevent back nav
+                // router.replace('/(tabs)/home');
+                router.replace('/auth'); // Use `replace` to prevent back nav
             } else {
                 setHasCompletedOnboarding(false); // User needs onboarding
             }

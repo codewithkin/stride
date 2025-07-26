@@ -76,7 +76,7 @@ const Auth = () => {
                     from={{ translateY: 60, opacity: 0 }}
                     animate={{ translateY: 0, opacity: 1 }}
                     transition={{ type: 'timing', duration: 500 }}
-                    className="flex flex-col gap-2 my-12"
+                    className="flex flex-col gap-2 my-12 w-full h-full justify-center items-center"
                 >
                     <View className="flex flex-col mt-8 gap-1">
                         <Text className="text-5xl font-medium text-slate-800">
@@ -85,7 +85,7 @@ const Auth = () => {
                         <Text className='text-base text-slate-500'>Please login or signup to continue</Text>
                     </View>
                     <TextInput
-                        className="p-4 bg-white focus:border-blue-500 rounded-xl border border-slate-300"
+                        className="p-4 bg-white focus:border-blue-500 rounded-xl border border-slate-300 w-full"
                         placeholder="Email"
                         keyboardType="email-address"
                         value={email}
@@ -93,18 +93,18 @@ const Auth = () => {
                     />
                     <Button
                         disabled={loading || !email}
-                        className="rounded-xl bg-blue-500 disabled:bg-blue-300"
+                        className="rounded-xl bg-blue-500 disabled:bg-blue-300 w-full"
                         onPress={signInWithMagicLink}
                         title="Sign in"
                     />
 
-                    <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
+                    {/* <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
                         <View className="w-[120px] h-[1px] bg-slate-500" />
                         <Text className="text-gray-500 font-medium text-lg">Or</Text>
                         <View className="w-[120px] h-[1px] bg-slate-500" />
-                    </View>
+                    </View> */}
 
-                    <View className="flex flex-col gap-2">
+                    {/* <View className="flex flex-col gap-2">
                         <Pressable className="border border-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2">
                             <Image
                                 source={require('~/assets/icons/google.png')}
@@ -124,7 +124,7 @@ const Auth = () => {
                                 Sign in with Google
                             </Text>
                         </Pressable>
-                    </View>
+                    </View> */}
                 </MotiView>
             )}
         </Container>
