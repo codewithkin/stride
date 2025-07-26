@@ -55,7 +55,7 @@ const Quote = () => {
         fetchQuote();
         fetchBackgroundImage();
 
-        const imageInterval = setInterval(fetchBackgroundImage, 5000); // Check every 5s
+        const imageInterval = setInterval(fetchBackgroundImage, 15000); // Check every 5s
 
         return () => clearInterval(imageInterval);
     }, []);
