@@ -12,7 +12,8 @@ export default function Home() {
     const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState<boolean | null>(null);
 
     // Get the user's session
-    const session = authClient.useSession().data
+    const { data: session } = authClient.useSession();
+    console.log("Session data:", session);
 
     useEffect(() => {
         InteractionManager.runAfterInteractions(async () => {
@@ -27,7 +28,7 @@ export default function Home() {
                 setHasCompletedOnboarding(false); // User needs onboarding
             }
         });
-    }, []);
+    }, [session]);
 
     if (hasCompletedOnboarding === null) {
         return null; // Or show splash/loading screen

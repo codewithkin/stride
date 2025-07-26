@@ -17,12 +17,28 @@ export default function Layout() {
           },
         }}
       />
+
       <Stack.Screen
         name="second"
         options={{
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="welcome"
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          headerShown: false,
+        }}
+      />
+
       <Stack.Screen
         name="auth"
         options={{

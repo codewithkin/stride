@@ -47,6 +47,62 @@ const Auth = () => {
         }
     }
 
+    const signInWithGoogle = async () => {
+        try {
+            setLoading(true);
+
+            const { data, error } = await authClient.signIn.social({
+                provider: "google",
+                newUserCallbackURL: "/welcome",
+                callbackURL: "/(tabs)/home"
+            });
+
+            if (error) {
+                console.log("An error occured");
+
+                Toast.show({
+                    type: "error",
+                    text1: "An error occured while signing in",
+                    text2: "Pleas try again later"
+                });
+
+                return
+            }
+        } catch (e) {
+            console.log("An error occured while signing in: ", e);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    const signInWithGithub = async () => {
+        try {
+            setLoading(true);
+
+            const { data, error } = await authClient.signIn.social({
+                provider: "github",
+                newUserCallbackURL: "/welcome",
+                callbackURL: "/(tabs)/home"
+            });
+
+            if (error) {
+                console.log("An error occured");
+
+                Toast.show({
+                    type: "error",
+                    text1: "An error occured while signing in",
+                    text2: "Pleas try again later"
+                });
+
+                return
+            }
+        } catch (e) {
+            console.log("An error occured while signing in: ", e);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <Container>
             <View className="flex flex-row w-full">
@@ -76,7 +132,7 @@ const Auth = () => {
                     from={{ translateY: 60, opacity: 0 }}
                     animate={{ translateY: 0, opacity: 1 }}
                     transition={{ type: 'timing', duration: 500 }}
-                    className="flex flex-col gap-2 my-12 w-full h-full justify-center items-center"
+                    className="flex flex-col gap-2 my-12 w-full"
                 >
                     <View className="flex flex-col mt-8 gap-1">
                         <Text className="text-5xl font-medium text-slate-800">
@@ -98,14 +154,19 @@ const Auth = () => {
                         title="Sign in"
                     />
 
-                    {/* <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
+                    <View className="flex flex-row gap-4 items-center justify-center w-full my-8">
                         <View className="w-[120px] h-[1px] bg-slate-500" />
                         <Text className="text-gray-500 font-medium text-lg">Or</Text>
                         <View className="w-[120px] h-[1px] bg-slate-500" />
-                    </View> */}
+                    </View>
 
-                    {/* <View className="flex flex-col gap-2">
-                        <Pressable className="border border-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2">
+                    <View className="flex flex-col gap-2">
+                        <Pressable
+                            onPress={async () => {
+                                await signInWithGoogle()
+                            }}
+                            disabled={loading}
+                            className="border border-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2 w-full disabled:bg-slate-200">
                             <Image
                                 source={require('~/assets/icons/google.png')}
                                 className="w-6 h-6"
@@ -115,16 +176,21 @@ const Auth = () => {
                             </Text>
                         </Pressable>
 
-                        <Pressable className="bg-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2">
+                        <Pressable
+                            onPress={async () => {
+                                await signInWithGoogle()
+                            }}
+                            disabled={loading}
+                            className="bg-slate-500 p-4 rounded-xl items-center justify-center flex flex-row gap-2">
                             <Image
                                 source={require('~/assets/icons/github.png')}
                                 className="w-6 h-6"
                             />
                             <Text className="font-semibold text-white text-md">
-                                Sign in with Google
+                                Sign in with Github
                             </Text>
                         </Pressable>
-                    </View> */}
+                    </View>
                 </MotiView>
             )}
         </Container>
