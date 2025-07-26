@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
     tabBar: {
         paddingVertical: 12,
         borderTopWidth: 2,
-        borderTopColor: "#1d4ed8", // Tailwind blue-700
-        backgroundColor: "#f9fafb", // Tailwind gray-50
-        height: 60, // Optional: increase tab bar height for spacing
+        borderTopColor: "#1d4ed8",
+        backgroundColor: "#f9fafb",
+        height: 60, 
     },
     tabLabel: {
         fontSize: 12,
