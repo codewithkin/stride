@@ -6,16 +6,23 @@ import { router } from 'expo-router';
 import * as Store from 'expo-secure-store';
 import { useEffect, useState } from 'react';
 import { InteractionManager } from 'react-native';
+import { authClient } from '~/lib/auth-client';
 
 export default function Home() {
     const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState<boolean | null>(null);
+
+    // Get the user's session
+    const session = authClient.useSession().data
 
     useEffect(() => {
         InteractionManager.runAfterInteractions(async () => {
             const result = await Store.getItem('hasCompletedOnboarding');
             if (result === 'true') {
-                // router.replace('/(tabs)/home');
-                router.replace('/auth'); // Use `replace` to prevent back nav
+                if (session?.session) {
+                    router.replace('/(tabs)/home');
+                }
+
+                router.replace('/auth'); // Redirect to auth page if onboarding is complete
             } else {
                 setHasCompletedOnboarding(false); // User needs onboarding
             }
